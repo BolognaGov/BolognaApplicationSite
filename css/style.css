@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+body, html {
+    font-family: "Noto Kufi Arabic";
+    font-size: 15px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#f4f4f4, #4a61d275);
+    /* background: #f4f4f4; */
+}
+
+main {
+    flex: 1;
+}
+
+.login-container {
+    background-color: #ffffff;
+    margin-top: 5vh;
+    padding: 20px;
+    padding-right: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 520px;
+    width: 100%;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin: 0;
+    margin-top: 0.4rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group .download {
+    width: 100%;
+    padding: 10px;
+    margin-top: 0.4rem;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form-group .download:hover {
+    background-color: #39c65a;
+}
+
+.form-group .about {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a53d2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 0.4rem;
+}
+
+.form-group .about:hover {
+    background-color: #4a7dea;
+}
+
+.image-container {
+    display: flex;
+    gap: 30px
+}
+
+footer {
+    display: inline;
+    text-align: center;
+    padding: 5px;
+    color: #000;
+    padding: 0.2em 0;
+    font-style: italic;
+}
+
+.info-container {
+    background-color: #ffffff;
+    margin-top: 30vh;
+    padding: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+}
+
+.info-container .return {
+    max-width: 80%;
+    width: 100%;
+    padding: 10px;
+    background-color: #4a53d2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 0.4rem;
+}
+
+.info-container .return:hover {
+    background-color: #4a7dea;
+}
