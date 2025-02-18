@@ -67,7 +67,7 @@ h2 {
     background: transparent;
     outline: none;
     font-size: 16px;
-    direction: rtl;
+    direction: ltr;
 }
 
 /* show/hide password */
