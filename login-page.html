@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="/css/login-style.css">
+    <link rel="shortcut icon" href="/assets/symbol.png" type="image/x-icon">
+</head>
+<body>
+    <div class="login-container">
+        <h1 class="system-title">نظام مسار بولونيا</h1>
+        <div class="icon-container">
+            <img src="/assets/mohe.jpg" alt="User Icon">
+        </div>
+        <h2>تسجيل دخول الأستاذ</h2>
+        <form action="#">
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="teacher-name" name="teacher-name" placeholder="اسم الأستاذ" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="teacher-code" name="teacher-code" placeholder="رمز الأستاذ" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" placeholder="كلمة المرور" required>
+                <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+            </div>
+
+            <button type="button" id="sendButton">
+                <i class="fas fa-lock"></i> تسجيل الدخول
+            </button>
+        </form>
+    </div>
+    <footer>
+        <small>
+            <p>
+                Copyright © 2025 All rights reserved to Ministry of Higher Education and Scientific Research
+            </p>
+        </small>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+</html>
