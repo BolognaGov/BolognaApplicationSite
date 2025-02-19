@@ -7,10 +7,10 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 95vh;
+    min-height: 96vh;
     justify-content: center;
     align-items: center;
-    background: #f5f5f5;
+    background: #f4f4f4;
     margin: 0;
 }
 
@@ -19,7 +19,7 @@ body {
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 350px;
 }
@@ -102,6 +102,7 @@ button:hover {
 }
 
 footer {
+    font-style: italic;
     margin-top: auto;
     width: 100%;
     text-align: center;
@@ -111,6 +112,23 @@ footer {
     position: fixed;
     bottom: 0;
     left: 0;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.status-bar p {
+    display: none;
+    font-weight: 500;
+    color: white;
+    border-radius: 8px;
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    background: #0056b3;
+}
+
+footer small p {
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
 }

