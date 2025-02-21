@@ -67,7 +67,11 @@ document.getElementById("sendButton")?.addEventListener("click", async () => {
         const jsonData = await response.json();
 
         if (status >= 400 && status <= 499) {
-            showStatusMessage(jsonData.status?.message || "حدث خطأ", Colors.FAIL);
+            if (jsonData.status?.message === "auth_faculty_fail") {
+                showStatusMessage("كلمة المرور او الرمز غير صحيح. حاول مجددا", Colors.FAIL);
+            } else {
+                showStatusMessage(jsonData.status?.message || "حدث خطأ", Colors.FAIL);
+            }
             return;
         }
 
