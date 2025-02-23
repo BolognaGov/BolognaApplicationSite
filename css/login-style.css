@@ -37,6 +37,11 @@ body {
     border-radius: 50%;
     background: #e0e0e0;
     padding: 10px;
+    animation: swapping 10s infinite;
+}
+@keyframes swapping {
+    0%, 50% { opacity: 1; }
+    25%, 75% { opacity: 0; }
 }
 
 /* Labels */
@@ -86,24 +91,20 @@ button {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    transition: background-color 0.3s ease-in-out;
 }
-
+button:hover {
+    background-color: #0056b3;
+}
 button i {
     font-size: 16px;
 }
 
-button:hover {
-    background: #0056b3;
-}
-
 footer {
     font-style: italic;
-    margin-top: auto;
     width: 100%;
     text-align: center;
     padding: 10px;
