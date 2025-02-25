@@ -19,7 +19,6 @@ function startSwapAnimation() {
     }, 5000);
 }
 
-// code to run when page is fully loaded (including images)
 window.onload = function() {
     startSwapAnimation();
-};
+}
