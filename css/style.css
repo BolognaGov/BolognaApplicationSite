@@ -11,12 +11,16 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(#f4f4f4, #4a61d275);
+    position: relative; /* Makes sure footer stays at bottom */
 }
 
 main {
     flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .login-container {
@@ -25,8 +29,9 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 520px;
+    max-width: 500px;
     width: 100%;
+    height: fit-content;
 }
 .login-container h2, h3 {
     text-align: center;
@@ -90,16 +95,19 @@ main {
 }
 
 footer {
-    display: inline;
+    position: absolute;
+    bottom: 0;
     text-align: center;
     color: #000;
     font-style: italic;
     width: 100%;
     background-color: #4a61d275;
+    padding: 10px 0;
 }
+
 footer p {
     font-weight: bold;
-    margin: 5px;
+    margin: 0;
 }
 
 /* "what happened?" anchor link and page styles */
