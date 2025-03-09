@@ -1,7 +1,7 @@
 const Colors = {
     SUCCESS: "#449e48",
-    FAIL: "#dc3c31",
-    WAIT: "#ffd700"
+    FAILURE: "#dc3c31",
+    WAITING: "#ffd700"
 };
 
 function showStatusMessage(message, color) {
@@ -44,7 +44,7 @@ document.getElementById("sendButton")?.addEventListener("click", async () => {
     const password = document.getElementById("password")?.value || "";
 
     if (!name || !code || !password) {
-        showStatusMessage("الرجاء ملء جميع الحقول", Colors.FAIL);
+        showStatusMessage("الرجاء ملء جميع الحقول", Colors.FAILURE);
         return;
     }
 
@@ -55,7 +55,7 @@ document.getElementById("sendButton")?.addEventListener("click", async () => {
     };
 
     try {
-        showStatusMessage("جار التحقق من المعلومات...", Colors.WAIT);
+        showStatusMessage("جار التحقق من المعلومات...", Colors.WAITING);
         
         const response = await fetch(baseURL, {
             method: "POST",
@@ -69,10 +69,10 @@ document.getElementById("sendButton")?.addEventListener("click", async () => {
         const jsonData = await response.json();
 
         if (status >= 400 && status <= 499) {
-            if (jsonData.status?.message === "auth_faculty_fail") {
-                showStatusMessage("كلمة المرور او الرمز غير صحيح. حاول مجددا", Colors.FAIL);
+            if (jsonData.status?.message === "auth_faculty_FAILURE") {
+                showStatusMessage("كلمة المرور او الرمز غير صحيح. حاول مجددا", Colors.FAILURE);
             } else {
-                showStatusMessage(jsonData.status?.message || "حدث خطأ", Colors.FAIL);
+                showStatusMessage(jsonData.status?.message || "حدث خطأ", Colors.FAILURE);
             }
             return;
         }
@@ -96,10 +96,10 @@ document.getElementById("sendButton")?.addEventListener("click", async () => {
                 throw new Error(webhookResponse.statusText);
             }
         } else {
-            showStatusMessage(`حدث خطأ أثناء إنشاء الاتصال (ERROR CODE: ${status})`, Colors.FAIL);
+            showStatusMessage(`حدث خطأ أثناء إنشاء الاتصال (ERROR CODE: ${status})`, Colors.FAILURE);
         }
     } catch (error) {
         console.error("Error:", error);
-        showStatusMessage("حدث خطأ في الاتصال", Colors.FAIL);
+        showStatusMessage("حدث خطأ في الاتصال", Colors.FAILURE);
     }
 });
